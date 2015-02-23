@@ -71,13 +71,13 @@ function getWinner(playerMove,computerMove) {
     return winner;
 }
 
-function playToFive() {
+function playTo(x) {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0; 
     var computerWins = 0;
     var tie = 0;
     
-        while (playerWins < 6 && computerWins < 6) {
+        while (playerWins < x+1 && computerWins < x+1) {
             var playerMoveThisTurn = getPlayerMove();
             var computerMoveThisTurn = getComputerMove();
             var winnerThisTurn = getWinner(playerMoveThisTurn, computerMoveThisTurn);      
@@ -86,7 +86,7 @@ function playToFive() {
             if (winnerThisTurn == 'player') {
                 playerWins +=1;
                 console.log("The score is Player: " + playerWins + " to " + computerWins + " :Computer");
-                if (playerWins == 5) {
+                if (playerWins == x) {
                     console.log("Congratulations! You win!");
                     break;
                 }
@@ -94,7 +94,7 @@ function playToFive() {
             else if (winnerThisTurn == 'computer') {
                 computerWins +=1;
                 console.log("The score is Player: " + playerWins + " to " + computerWins + " :Computer");
-                if (computerWins == 5) {
+                if (computerWins == x) {
                     console.log("Oh No! The computer won!");
                     break;
                 }
@@ -110,5 +110,5 @@ function playToFive() {
     return [playerWins, computerWins];
 }
 
-playToFive();
+playTo(5);
 
